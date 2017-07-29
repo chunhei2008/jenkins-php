@@ -13,6 +13,7 @@ RUN apt-get update; \
     apt-get install -y --no-install-recommends libxslt-dev; \
 
 RUN docker-php-source extract \
+    && docker-php-ext-configure xsl --with-xsl \
     && docker-php-ext-install -j$(nproc) xsl \
     && docker-php-source delete
 
