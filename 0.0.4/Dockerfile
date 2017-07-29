@@ -10,7 +10,7 @@ RUN composer require sebastian/phpcpd --prefer-source --no-interaction \
     && ln -s /vendor/bin/phpcpd /usr/local/bin/phpcpd
 
 RUN apt-get update; \
-    apt-get install -y --no-install-recommends libxslt-dev; \
+    apt-get install -y --no-install-recommends libxslt-dev
 
 RUN docker-php-source extract \
     && docker-php-ext-configure xsl --with-xsl \
