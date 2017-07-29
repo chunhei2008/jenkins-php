@@ -9,6 +9,10 @@ RUN composer require squizlabs/php_codesniffer --prefer-source --no-interaction 
 RUN composer require sebastian/phpcpd --prefer-source --no-interaction \
     && ln -s /vendor/bin/phpcpd /usr/local/bin/phpcpd
 
+RUN docker-php-source extract \
+    && docker-php-ext-install -j$(nproc) xsl \
+    && docker-php-source delete
+
 RUN composer require theseer/phpdox --prefer-source --no-interaction \
     && ln -s /vendor/bin/phpdox /usr/local/bin/phpdox
 
